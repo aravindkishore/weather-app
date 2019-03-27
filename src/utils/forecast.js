@@ -8,9 +8,12 @@ const forecast = (lat,lan,callback)=>{
         }else if(body.error){
             callback('Unbale to find service for given location',undefined)
         }else{    
-            const {temperature,precipProbability} = body.currently;   
+            const {temperature,precipProbability,summary} = body.currently;   
+            const dailySummary = body.daily.summary;   
         callback(undefined,{
-            temperature: temperature,
+            temperature,
+            summary,
+            dailySummary,
             precipProba: precipProbability
         });
         }

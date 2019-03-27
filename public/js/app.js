@@ -14,7 +14,8 @@ const messageTwo = document.querySelector("#message-2");
 weatherForm.addEventListener('submit',(e)=>{
     e.preventDefault();
     const address = searchLocation.value;
-    messageOne.textContent='Loading data...'
+    messageOne.textContent='Loading data...';
+    messageTwo.textContent = '';
     fetch('/weather?address='+ encodeURIComponent(address))
     .then((response)=>{
         
@@ -23,8 +24,8 @@ weatherForm.addEventListener('submit',(e)=>{
             if(data.error){
                 messageOne.textContent = error;
             }else{
-                messageOne.textContent= data.address;
-                messageTwo.textContent = data.location + ',Temperature is '+ data.forecast.temperature;
+                messageOne.textContent= data.location;
+                messageTwo.textContent = data.summary + ',Currently temperature is '+ data.forecast.temperature+' there is '+ data.forecast.precipProba+'% of rain. And Week summary is '+ data.forecast.dailySummary;
             }
         });        
     })
