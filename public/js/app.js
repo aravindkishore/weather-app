@@ -25,7 +25,7 @@ weatherForm.addEventListener('submit',(e)=>{
                 messageOne.textContent = error;
             }else{
                 messageOne.textContent= data.location;
-                messageTwo.textContent = data.summary + ',Currently temperature is '+ data.forecast.temperature+' there is '+ data.forecast.precipProba+'% of rain. And Week summary is '+ data.forecast.dailySummary;
+                messageTwo.textContent = data.forecast.summary + ',Currently temperature is '+ data.forecast.temperature+' there is '+ data.forecast.precipProba+'% of rain. And Week summary is '+ data.forecast.dailySummary;
             }
         });        
     })
